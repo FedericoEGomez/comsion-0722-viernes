@@ -141,12 +141,14 @@ module.exports = {
                 }
 
                 const token = await generadorJWT({id: usuario._id, email:usuario.email});
-
+                console.log("ususerio logeado id :" + usuario.id)
                 res.json({msg: "usuario logeado", token: token})
             } else {
+                console.log(err)
                 res.status(501).json(err)
             }
         } catch (error) {
+            console.log(error)
             res.status(501).json(error)
         }
     },
